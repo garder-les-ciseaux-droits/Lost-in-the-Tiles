@@ -40,7 +40,7 @@
 export default {
   data() {
     return {
-      iframeSrc: '/ChessChatGPT/public/index.html',
+      iframeSrc: '/Lost-in-the-Tiles/ChessChatGPT/public/index.html',
       isLoading: true, // Состояние загрузки
     };
   },

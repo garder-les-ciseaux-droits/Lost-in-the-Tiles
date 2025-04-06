@@ -1,0 +1,79 @@
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+                    <defs>
+                      <linearGradient id="l">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="r">
+                        <stop offset="0" stop-color="#50e1e5"/>
+                        <stop offset=".165" stop-color="#5c839a"/>
+                        <stop offset=".823" stop-color="#292836"/>
+                        <stop offset="1" stop-color="#321916"/>
+                      </linearGradient>
+                      <linearGradient id="p">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="j">
+                        <stop offset="0"/>
+                        <stop offset="1" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="m">
+                        <stop offset="0" stop-color="#0cf"/>
+                        <stop offset="1" stop-color="#04a"/>
+                      </linearGradient>
+                      <linearGradient id="o">
+                        <stop offset="0" stop-color="navy" stop-opacity="0"/>
+                        <stop offset="1" stop-color="#0cf"/>
+                      </linearGradient>
+                      <linearGradient id="i">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="h">
+                        <stop offset="0" stop-color="red"/>
+                        <stop offset="1" stop-color="maroon"/>
+                      </linearGradient>
+                      <linearGradient id="k">
+                        <stop offset="0" stop-color="#b3b3b3"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="n">
+                        <stop offset="0" stop-color="red"/>
+                        <stop offset="1" stop-color="#ff0" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="q">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="f">
+                        <stop offset="0" stop-color="#666"/>
+                        <stop offset="1" stop-color="#e6e6e6"/>
+                      </linearGradient>
+                      <linearGradient id="e">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="a">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="b">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="c">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="d">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="g">
+                        <stop offset="0" stop-color="#fff"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M165.76 496.656v-3.206c0-1.95.837-3.344 1.116-3.901 1.115-9.058-1.951-22.994 4.32-27.871 13.935-10.591 27.87-18.813 28.428-31.633 1.115-22.436-4.878-31.912-15.608-43.2 3.345-15.19 16.305-60.897 10.591-77.341-.697-1.812-.557-4.041-.975-9.197-1.115-13.378-2.509-25.363-9.058-38.88.278-6.41.696-33.027.418-45.011 2.369-3.066 3.902-3.763 8.64-3.763 5.434.14 7.246-2.23 8.64-6.967.975-3.345 1.811-5.435 4.877-6.829 8.78.279 17.558.279 26.198.976 1.673.418 2.648 9.894 6.132 13.517 17.698 4.18 45.708 7.386 61.733 7.386 18.813-.558 22.297 1.95 21.74 6.41 3.205 4.738 2.647 8.919.975 13.1-1.533 4.18-1.394 3.901-2.369 3.901-1.394 0-2.648.976-2.508 2.23.557 4.18 3.902 8.5 3.205 12.96-.558 4.459-1.394 7.525-3.763 9.058-2.23 1.672-4.738 1.254-9.755.418-13.517-2.23-27.87.836-38.043 10.87-9.058 10.311-5.295 12.541 3.205 18.812 26.477 24.666 49.053 38.183 47.938 66.75-.976 28.568-25.363 49.75-21.74 70.095 2.09 12.124 31.076 25.084 32.888 31.215.836 2.787.14 4.599-.836 8.78-.836 3.065-.836 3.901-.279 5.852 1.254 4.181 2.23 9.476 2.23 12.403 0 2.787 0 2.787-1.812 3.066z" fill="white" stroke="#111111" stroke-width="6.549656799999999"/>
+                  </svg>

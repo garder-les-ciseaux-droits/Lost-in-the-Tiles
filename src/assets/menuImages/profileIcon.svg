@@ -1,0 +1,17 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+	<title>DALL·E 2024-09-30 23</title>
+	<style>
+		.s0 { fill: #ffffff;stroke: #ffffff;stroke-miterlimit:10 } 
+		.s1 { fill: #ffffff } 
+		.s2 { fill: none;stroke: #ffffff;stroke-miterlimit:10;stroke-width: 38 } 
+		.s3 { fill: none;stroke: #ffffff;stroke-miterlimit:10 } 
+	</style>
+	<g id="Layer 1">
+		<path id="форма 5" fill-rule="evenodd" class="s0" d="m225.8 483.8l36.6 32.8-32.7 36.7-36.7-32.8z"/>
+		<path id="форма 2" fill-rule="evenodd" class="s1" d="m249.8 737.2c0 0 45.1-61.3 176.5-99.7 0 0 61.6 57.1 151.6 4.1 0 0 137.6 32.1 184.4 102.4 0 0-268 252.1-512.5-6.8z"/>
+		<path id="форма 1" fill-rule="evenodd" class="s2" d="m511.9 920c-233.1 0-421.5-182.1-421.5-407.5 0-225.4 188.4-407.6 421.5-407.6 233.1 0 421.5 182.2 421.5 407.6 0 225.4-188.4 407.5-421.5 407.5z"/>
+		<path id="форма 5 copy" fill-rule="evenodd" class="s0" d="m778.8 479.7l36.7 32.8-32.8 36.7-36.6-32.8z"/>
+		<path id="форма 3" fill-rule="evenodd" class="s1" d="m512.4 612.9c0 0 77.9 0.3 120.3-95.3 0 0 24.8-10.6 34.2-46.1l-3-88c0 0-18.7-70.6-73.7-94.2 0 0 8-39.6-4.1-61.5 0 0-50.8 22.8-118.8-16.3 0 0-32.8 11.7 24.6 53.2 0 0-103.7 18.7-135.2 16.4 0 0-44.2 3.8 0 41l28.7 4.1c0 0-54.8 46.9-41 159.7 0 0 22.7 17.1 32.8 28.7 0 0 1.1 65.7 135.2 98.3z"/>
+		<path id="форма 4" fill-rule="evenodd" class="s3" d="m745.9 522.8"/>
+	</g>
+</svg>

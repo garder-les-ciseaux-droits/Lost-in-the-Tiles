@@ -1,0 +1,264 @@
+{
+    "episodes": [
+      {
+        "name": "Prologue",
+        "scenes": [
+        {
+          "background": "black",
+          "music": "/src/assets/PlotResources/Prologue/music/dark-piano-ambient-background-music-concrete-forest-208256.mp3",
+          "effects": "",
+          "video": "",
+          "effectType": "", 
+          "characters": [
+            {
+              "name": "...",
+              "image": "",
+              "lines": ["There was a time when life seemed endless, and happiness felt like it had finally embraced me.", "But emerging from the void, I learned that merely living isn’t enough.", "Must  I learn to live the right way, to make choices that matter?", "Staying still, lingering too long, invites the void to find me again."],
+              "voices": ["/src/assets/PlotResources/Prologue/voices/scene1/1.mp3", "/src/assets/PlotResources/Prologue/voices/scene1/2.mp3", "/src/assets/PlotResources/Prologue/voices/scene1/3.mp3", "/src/assets/PlotResources/Prologue/voices/scene1/4.mp3"],
+              "position": "center"
+            }
+          ]
+        },
+        {
+          "background": "/src/assets/PlotResources/Prologue/imgs/prologue0.1.png",
+          "music": "/src/assets/PlotResources/Prologue/music/dark-piano-ambient-background-music-concrete-forest-208256.mp3",
+          "effects": "/src/assets/PlotResources/Prologue/music/wind__artic__cold-6195.mp3",
+          "video": "",
+          "effectType": "snowstorm",
+          "characters": [
+            {
+              "name": "...",
+              "image": "",
+              "lines": ["....","I didn't save you, Victor, like you did.", "I don’t want to return to the darkness you pulled me from.", "But I feel it—nightmares creeping closer, the cold piercing through me.", "Should I keep moving forward, or is it already too late?"],
+              "voices": ["/src/assets/PlotResources/Prologue/music/a_woman_laughing_and.mp3","/src/assets/PlotResources/Prologue/voices/scene2/1.mp3", "/src/assets/PlotResources/Prologue/voices/scene2/2.mp3", "/src/assets/PlotResources/Prologue/voices/scene2/3.mp3", "/src/assets/PlotResources/Prologue/voices/scene2/4.mp3"],
+              "position": "center"
+            }
+           
+          ],
+          "choices": [
+            {
+              "text": "Accept Victor's death.",
+              "nextEpisodeIndex": 0,
+              "nextSceneIndex": 2,
+              "afterSceneIndex": 3
+            },
+            {
+              "text": "Do not accept.",
+              "nextEpisodeIndex": 0,
+              "nextSceneIndex": 3,
+              "afterSceneIndex": 4
+            }
+          ]
+        },
+        {
+          "background": "black",
+          "music": "/src/assets/PlotResources/Prologue/music/dark-piano-ambient-background-music-concrete-forest-208256.mp3",
+          "effects": "",
+          "video": "",
+          "effectType": "", 
+          "characters": [
+            {
+              "name": "...",
+              "image": "",
+              "lines": ["Choosing to remain, she slowly sank into the snowdrifts, each breath growing heavier.", "The darkness of the void crept in, swallowing her inch by inch.", "She struggled, but the weight of the cold and shadows pressed her deeper.", "Victor never came to her aid this time; his presence was a memory, fading away.", "In the end, the nothingness claimed her, and the light she once found was gone. Restart the game, please.", "Бу! Испугался?! Ну короче ты проиграл, молодец. Игра 12+ думаю. Щас бы проигрывать в игре 12+.", "Ну короче не надо перезагружать и переустанавливать винду, просто кликай дальше."],
+              "voices": [],
+              "position": "center"
+            }
+          ]
+        },        
+        {
+          "background": "/src/assets/PlotResources/Prologue/imgs/prologue0.3.png",
+          "music": "/src/assets/PlotResources/Prologue/music/dark-piano-ambient-background-music-concrete-forest-208256.mp3",
+          "effects": "/src/assets/PlotResources/Prologue/music/wind__artic__cold-6195.mp3",
+          "video": "",
+          "effectType": "snowstorm", 
+          "characters": [
+            {
+              "name": "Dykke",
+              "image": "",
+              "lines": ["It’s so cold… and your lifeless body lies here beside me.", "I can’t let this place be my end, not while there’s still hope out there.", "Even with the pain and the cold, I’ll find the strength to keep moving forward.", "I will never leave you alone...."],
+              "voices": ["/src/assets/PlotResources/Prologue/voices/scene3/1.mp3", "/src/assets/PlotResources/Prologue/voices/scene3/2.mp3", "/src/assets/PlotResources/Prologue/voices/scene3/3.mp3", "/src/assets/PlotResources/Prologue/voices/scene3/4.mp3"],
+              "position": "center"
+            }
+          ],
+          "transition": {
+            "text": "After climbing up the slope with the dead body on your back, you move forward and notice footsteps leading to an unknown location.",
+            "music": "",
+            "effect": "",
+            "duration": 10000
+          }
+        },
+        {
+          "background": "/src/assets/PlotResources/Prologue/imgs/QKP7RFRCXK564MAW0T8SCFJ350.jpeg",
+          "music": "/src/assets/PlotResources/Prologue/music/caves-of-dawn-10376.mp3",
+          "effects": "",
+          "video": "",
+          "effectType": "", 
+          "characters": [
+            {
+              "name": "...",
+              "image": "",
+              "lines": ["You step inside a devastated castle located deep in the mountains away from human eyes.", "Warmed by the walls, which were warm for some reason, you look around."],
+              "voices": [],
+              "position": "center"
+            },
+            {
+              "name": "Dykke",
+              "image": "",
+              "lines": ["What is this place?", "Looks like no-one's been here for ages.", "Wait… these footprints. They're wet! Who or what made them?", "That means I can find someone who can help m-", "us", "Victor, do you hear me? I'll go check it out."],
+              "voices": ["/src/assets/PlotResources/Prologue/voices/scene4/1.mp3", "/src/assets/PlotResources/Prologue/voices/scene4/2.mp3", "/src/assets/PlotResources/Prologue/voices/scene4/3.mp3", "/src/assets/PlotResources/Prologue/voices/scene4/4.mp3", "/src/assets/PlotResources/Prologue/voices/scene4/5.mp3", "/src/assets/PlotResources/Prologue/voices/scene4/6.mp3"],
+              "position": "center"
+            }
+          ]
+        },
+        {
+          "background": "/src/assets/PlotResources/Prologue/imgs/prologue0.4.png",
+          "music": "",
+          "effects": "",
+          "video": "",
+          "effectType": "", 
+          "characters": [
+            {
+              "name": "...",
+              "image": "",
+              "lines": ["Wandering through countless corridors in search of salvation, you stumble upon a mirror standing in the very depths of this castle."],
+              "voices": [],
+              "position": "center"
+            },
+            {
+              "name": "Dykke",
+              "image": "",
+              "lines": ["I can't see my reflection. That's strange."],
+              "voices": ["/src/assets/PlotResources/Prologue/voices/scene5/1.mp3"],
+              "position": "center"
+            },{
+              "name": "...",
+              "image": "",
+              "lines": ["You move closer and hold out your hand as you suddenly hear someone's footsteps behind you."],
+              "voices": ["/src/assets/PlotResources/Prologue/music/echoing_footsteps.mp3"],
+              "position": "center"
+            },{
+              "name": "Dykke",
+              "image": "",
+              "lines": ["Human!"],
+              "voices": ["/src/assets/PlotResources/Prologue/voices/scene5/2.mp3"],
+              "position": "center"
+            }
+          ],
+          "transition": {
+            "text": "Joyfully turning back, you slip and fall inside the mirror.",
+            "music": "",
+            "effect": "",
+            "duration": 5000
+          }
+        }
+        
+      
+        ]
+      },
+
+      {
+        "name": "Episode 1",
+        "scenes": [
+          {
+            "background": "/src/assets/Characters/Backgrounds/Episode1/Scene1/MV5BNGIzYTFhMDAtOWRkZC00ZDVmLTk1M2EtMTMyZTRhNmUzYWVhXkEyXkFqcGdeQXVyMTI1NTkwNTUz._V1_.jpg",
+            "music": "",
+            "effects": "",
+            "video": "",
+            "effectType": "", 
+            "characters": [
+              {
+                "name": "Character 1",
+                "image": "/src/assets/Characters/images/Liria/liria-fullbody.png",
+                "lines": ["Hello!", "How are you?", "I have more to say!"],
+                "voices": [],
+                "position": "left"
+              },
+              {
+                "name": "Character 2",
+                "image": "/src/assets/Characters/images/Morfel/morfel-fullbody.png",
+                "lines": ["Hi!", "I am fine."],
+                "voices": [],
+                "position": "right"
+              }
+            ]
+          },
+          {
+            "background": "/src/assets/Characters/Backgrounds/Episode1/Scene1/wallpaper.png",
+            "music": "",
+            "effects": "",
+            "video": "",
+            "effectType": "", 
+            "characters": [
+              {
+                "name": "Character 1",
+                "image": "/src/assets/Characters/images/Liria/liria-fullbody.png",
+                "lines": ["Let’s continue our conversation!", "Do you like the view?"],
+                "voices": [],
+                 "position": "left"
+              },
+              {
+                "name": "Character 2",
+                "image": "/src/assets/Characters/images/Morfel/morfel-fullbody.png",
+                "lines": ["Yes, it’s beautiful!"],
+                "voices": [],
+                 "position": "right"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Episode 2",
+        "scenes": [
+          {
+            "background": "/assets/backgrounds/scene3.png",
+            "music": "",
+            "effects": "",
+            "video": "",
+            "effectType": "", 
+            "characters": [
+              {
+                "name": "Character 1",
+                "image": "/assets/characters/char1.png",
+                "lines": ["This is Episode 2!"],
+                "voices": [],
+                 "position": "right"
+              },
+              {
+                "name": "Character 2",
+                "image": "/assets/characters/char2.png",
+                "lines": ["Let’s start!"],
+                "voices": [],
+                 "position": "right"
+              }
+            ]
+          },
+          {
+            "background": "/assets/backgrounds/scene4.png",
+            "music": "",
+            "effects": "",
+            "video": "",
+            "effectType": "", 
+            "characters": [
+              {
+                "name": "Character 1",
+                "image": "/assets/characters/char1.png",
+                "lines": ["Let’s continue!", "More conversation here."],
+                "voices": [],
+                 "position": "right"
+              },
+              {
+                "name": "Character 2",
+                "image": "/assets/characters/char2.png",
+                "lines": ["Absolutely."],
+                "voices": [],
+                "position": "right"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

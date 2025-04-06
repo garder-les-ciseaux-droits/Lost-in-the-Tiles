@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost in the tiles</title>
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+
+        <div id="loading-screen" style="z-index: 900000"></div>
+        <!-- <button id="checkFilter" >TAP</button> -->
+        <div id="currentPlayer">
+            <img class="shield" alt="enemy-turn" src="./resources/Gui/shield-4-svgrepo-com.svg" style="display: none;">
+            <img class="sword" alt="player-turn" src="./resources/Gui/sword-svgrepo-com.svg">
+        </div>
+
+        <div id="tutor" class="tutor-cont" style="display: none;">
+            <div class="tutor-block">
+                <div class="tutor-slide" style="flex-direction: column; display: none;">
+                    <div class="slide1">
+                        <img  src="./resources/Characters/images/allchars/Pacifica/full-body.svg" class="tutor-img ">
+                        <div class="dialogue-box" style="margin-left: 24rem; height: 10rem;">
+                            <div class="left-box">
+                                <p>
+                                    Welcome to your first game in Lost in the Tiles!
+                                </p>
+                                <audio class="tutor-audio" src="./resources/Sounds/tutorial/voices/1.mp3"></audio>
+                               
+                            </div>
+                            <div class="right-box">
+                                <button class="next-tutor-slide">
+                                    <span>Next</span>
+                                    <img src="./resources/arrow-right-svgrepo-com.svg">
+                                </button>
+                            </div>
+                          
+                        </div>
+                       
+                    </div>
+                  
+                </div>
+                <div class="tutor-slide" style="display: none; flex-direction: column; text-align: start;">
+                  <div class="slide2">
+                    <img src="./resources/Characters/images/allchars/Pacifica/full-body.svg" >
+                    <div class="dialogue-box" style="margin-left: 20rem; height: 10rem;">
+                        <div class="left-box">
+                            <p>
+                              You can upscale the board using Mouse Wheel. 
+                            </p>
+                           
+                        </div>
+                        <div class="right-box">
+                            <button class="next-tutor-slide">
+                                <span>Next</span>
+                                <img src="./resources/arrow-right-svgrepo-com.svg">
+                            </button>
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tutor-slide" style="display: none; flex-direction: column;">
+                    <div class="slide3">
+                        <div class="dialogue-box" style="margin-top: 4rem; height: 10rem;">
+                            <div class="left-box">
+                                <p>
+                                Let me teach you how to move your pieces.
+                                </p>
+                            
+                            </div>
+                            <div class="right-box">
+                                <button class="next-tutor-slide" id="moveTutorial">
+                                    <span>Next</span>
+                                    <img src="./resources/arrow-right-svgrepo-com.svg">
+                                </button>
+                            </div>
+                      
+                        </div>
+                    </div>
+                    
+                </div>
+               
+            </div>
+        </div>
+
+        <div id="moveTutor" style="position: fixed; ">
+            <div id="moveTutorOverlay" style="position: absolute; inset: 0;">
+
+            </div>
+            <div class="moveTutor1" style="display: none">
+                <div>
+                    <p>Click on the tile with piece and then click where you want it to go.</p>
+                </div>
+              
+            </div>
+
+            <div class="moveTutor1" style="display: none; top: 55%;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                        <p>Every time you move or capture a piece, you gain energy to use abilities.</p>
+                        <img style="width: 3rem; height:3rem" src="./resources/Skills/Energy/power-svgrepo-com.svg">
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>
+                    
+                </div>
+
+              
+              
+            </div> 
+
+            <div class="moveTutor1" style="display: none; top: 0%; left: 0; margin-top: 5rem; margin-left: 2rem;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                        <p>This is the status of current player.</p>
+        
+                       
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>
+                    
+                </div>              
+            </div>
+
+            <div class="moveTutor1" style="display: none; top: 0%; left: 0; margin-top: 5rem; margin-left: 2rem;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                        <img class="sword" src="./resources/Gui/sword-svgrepo-com.svg" style="width: 2rem; height: 2rem; margin-right: 0.5rem;">
+                        <p>Sword means your turn.</p>
+                        
+                       
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>
+                    
+                </div>              
+            </div>
+
+            <div class="moveTutor1" style="display: none; top: 0%; left: 0; margin-top: 5rem; margin-left: 2rem;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                       
+                        <img class="shield" src="./resources/Gui/shield-4-svgrepo-com.svg"  style="width: 2rem; height: 2rem; margin-right: 0.5rem;">
+                        <p>Shield means enemy's turn</p>
+                       
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>
+                    
+                </div>              
+            </div>
+
+            <div class="moveTutor1" style="display: none; top: 45%; right: 0; margin-right: 2rem;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                        <p>You can use abilities by pressing 1, 2, 3 or the character icon.</p>
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>   
+                </div>        
+            </div>
+            <div class="moveTutor1" style="display: none; top: 45%; right: 0; margin-right: 2rem;">
+                <div style="flex-direction: column; height: 10rem;">
+                    <div style="width: 100%; height: 50%;">
+                        <p>The abilities can only be used during your turn </p>
+                        <img style="width: 3rem; height:3rem" src="./resources/Gui/sword-svgrepo-com.svg">
+                    </div>
+                    <div style="width: 100%; height: 50%;">
+                        <button class="next-move-slide">
+                            <span>Next</span>
+                            <img src="./resources/arrow-right-svgrepo-com.svg">
+                        </button>
+                    </div>   
+                </div>        
+            </div>
+
+            <div class="moveTutor1" style="display: none; top: 45%; right: 0; margin-right: 2rem;">
+                <div>
+                    <p>Use Ambition's ability by pressing "2" to Undo your last move.</p>
+                </div>      
+            </div>
+
+            <div class="moveTutor1" style="display: none; bottom: 0; left: 0; margin-left: 2rem; margin-bottom: 2rem; height: 10rem;">
+                <div>
+                    <p>Press "alt" to open dashboard.</p>
+                </div>      
+            </div>
+
+
+            
+        </div>
+
+        <div id="enemyArrival" style="display: none; position: fixed; pointer-events: all;">
+           
+
+            <div class="enemyTutor1" style="flex-direction: column; top: 0; left: 0;">
+
+                    <img src="./resources/Characters/images/allchars/Pacifica/full-body.svg" class="tutor-img" style="transform: scaleX(-1);">
+                    <div class="dialogue-box" style="margin-left: 24rem; height: 10rem;">
+                        <div class="left-box">
+                            <p>
+                                Looks like we've got company.
+                            </p>
+                          
+                           
+                        </div>
+                        <div class="right-box">
+                            <button class="next-tutor-slide">
+                                <span>Next</span>
+                                <img src="./resources/arrow-right-svgrepo-com.svg">
+                            </button>
+                        </div>
+                      
+                    </div>
+                    <audio class="enemyAV" src="./resources/TutorialResources/wegotcompany.mp3"></audio>
+                
+              
+            </div>
+
+            <div class="enemyTutor1" style="display: none; right: 0; bottom: 0; flex-direction: row-reverse;">
+
+                <img src="./resources/SentinelPieces/svg/enemies/enemy-piece-b.svg" class="tutor-img" style="transform: scaleX(-1);">
+                <div class="dialogue-box" style="margin-right: 28rem; height: auto; width: 45rem; z-index: 60000;">
+                    <div class="left-box">
+                        <p>
+                            No matter who you are, I will not allow Arakville to be disturbed.
+                        </p>
+                      
+                       
+                    </div>
+                    <div class="right-box">
+                        
+                    </div>
+                  
+                </div>
+                <audio class="enemyAV" src="./resources/TutorialResources/iwillnotallow.mp3"></audio>
+               
+            
+          
+            </div>
+
+
+            <div class="enemyTutor1" style="display:  none; top: 0; right: 0; justify-content: center; align-items: center; margin: 0; flex-direction: row-reverse; ">
+
+                <!-- <img src="./resources/SentinelPieces/svg/enemies/enemy-piece-b.svg" class="tutor-img" style="transform: scaleX(-1);"> -->
+              
+                <div class="dialogue-box" style="z-index: 60000; width: 50%; height: auto; background-color: #121212; color: white; padding: 3rem; margin: 0;">
+                    <div class="left-box" style="height: 100%; width: 100%;  flex-direction: column; align-items: center; justify-content: center; padding: 0;">
+                       
+                        <p>
+                            Your opponent may prohibit you from moving a piece for several turns (2). 
+                        </p>
+                        <img style="width: 37rem; height: 22rem; margin-top: 1rem;" src="./resources/Gui/rootDemonstration.png">
+                      
+                       
+                    </div>  
+                </div>
+            
+          
+            </div>
+
+>
+        </div>
+    
+        <div id="end-screen">
+            <div class="black-banner">
+                <div id="end-images">
+                    <img id="win-img" src="./resources/backgrounds/endScreen/victory.svg" style="display: none;">
+                    <img id="lose-img" src="./resources/backgrounds/endScreen/defeat.svg" style="display: none;">
+                    <img id="draw-img" src="./resources/backgrounds/endScreen/draw.svg" style="display: none;">
+                </div>
+                <div id="end-button">
+                    <button id="repeat-battle">
+                        <span>Try again</span>
+                        <img src="./resources/backgrounds/endScreen/buttons/repeat-svgrepo-com.svg">
+                    </button>
+                    <button id="quit-battle">
+                        <span>Continue</span>
+                        <img src="./resources/backgrounds/endScreen/buttons/arrow-sm-right-svgrepo-com.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="cards-btn" class="cards-button">
+            <button class="cards-inner">
+
+            </button>
+        </div> -->
+
+
+        <div id="crd-cont" class="cards-container">
+        </div>
+
+        <div id="desc-cont" class="desc-container">
+
+        </div>
+
+        <!-- <div class="skill-char-container">
+            
+        </div> -->
+
+
+
+        <div class="player-container">
+            <div class="player-capture">
+            
+            </div>
+        </div>
+
+
+        <div class="enemy-container">
+            <div class="enemy-capture">
+             
+            </div>
+        </div>
+    <div class="container">
+
+        <div class="ui-container">
+            <div class="ui">
+                
+            </div>
+            <div class="current-energy" style="display: none;">
+                <div class="energy-circle">
+                    <img src="./resources/Skills/Energy/power-svgrepo-com.svg">
+                  
+                        <span class="energy-number"></span>
+                    <div class="energy">
+                        <div class="wave">
+                              <div></div>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+            </div>
+            <div class="timer">
+                
+                <span class="timer-numbers">04:59</span>
+            </div>
+        </div>
+        
+        
+        <div class="chessboard" id="chessboard">
+           
+        </div>
+
+        <div id="settings" style="z-index: 5000000;">
+            <a href="#" onclick="window.top.location.href = '/home'"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0001 3H3.00006V21H21.0001V3ZM8.13177 16.8033L16.1318 16.8033L16.1318 8.80331H14.1318V13.3891L7.88913 7.14645L6.47491 8.56067L12.7176 14.8033H8.13177V16.8033Z" fill="#ffffff"></path> </g>
+            </svg></a>
+            
+        </div>
+
+        
+
+        <!-- <div class="background">               
+        </div> -->
+
+    </div>
+
+
+    <!-- <div id="settings-menu">
+        <h1>SETTINGS</h1>
+    </div> -->
+
+    <audio id="move-tile-sound" src="./resources/Sounds/rocks-sliding-101019 (mp3cut.net).mp3"></audio>
+    <audio id="battle-sound" src="./resources/videos/effects/swords_battle.mp3"></audio>
+    <audio id="click-sound" src="./resources/Sounds/souds/Click_2.wav"></audio>
+    <audio id="changeStatus" src="./resources/Sounds/souds/Bleep_01.ogg"></audio>
+
+    <audio id="background-music" src="./resources/Sounds/Sci-Fi Music Pack Vol. 2/Loops/mp3/5 - Stellar Drift  (Loop).mp3" loop ></audio>
+    <audio id="background-wind" src="./resources/Sounds/Cold Wind Sound Effect No Copyright Free.mp3" loop ></audio>
+    <audio id="skills-voices"></audio>
+    <audio id="enemyAVB" src="./resources/TutorialResources/isnotenought.mp3"></audio>
+   
+
+    <script type="module" src="./settings.js"></script>
+    <script type="module" src="./index.js"></script>
+
+    <script type="module" src="./timerAndCapture.js"></script>
+    
+    
+    <script src="./engine/stockfish-16.1-single.js"></script>
+    <script type="module" src="./tutorial.js"></script>
+    <script type="module" src="./visual.js"></script>
+    <script type="module" src="./ui.js"></script>
+
+    <script src="./music.js"></script>
+
+
+
+    
+   <script>
+
+
+
+
+   </script>
+</body>
+</html>

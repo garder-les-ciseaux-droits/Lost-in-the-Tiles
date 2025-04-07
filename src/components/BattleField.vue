@@ -1,6 +1,7 @@
 <template>
   <div>
   
+    <div class="fixed z-50 w-16 h-16">HEELo</div>
     <div v-if="isLoading" class="loading-screen">
       <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="w-24 h-24">
         <title>new</title>
@@ -34,13 +35,14 @@
       @load="hideLoadingScreen">
     </iframe>
   </div>
+ 
 </template>
 
 <script>
 export default {
   data() {
     return {
-      iframeSrc: '/Lost-in-the-Tiles/ChessChatGPT/public/index.html',
+      iframeSrc: './ChessChatGPT/public/index.html',
       isLoading: true, // Состояние загрузки
     };
   },

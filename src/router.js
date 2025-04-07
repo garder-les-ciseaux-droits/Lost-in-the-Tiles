@@ -6,12 +6,13 @@ import Home from '/src/components/Home.vue';
 import Scene from '/src/components/Scene.vue';
 
 
+
 export default createRouter ({
     history: createWebHashHistory(),
   routes: [
     {
         path: '/',
-        component: Home
+        component: Game
     },
 
     {

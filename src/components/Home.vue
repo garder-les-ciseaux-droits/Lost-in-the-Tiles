@@ -200,7 +200,7 @@
 <script>
   // import Scene from '/src/components/Scene.vue'
   import ProfileBars from '/src/components/UI/ProfileBars.vue'
-  import WelcomeMessage from '/src/components/WelcomeMessage.vue'
+
   import { mapGetters, mapActions  } from 'vuex';
   import Inventory from '/src/components/UI/Inventory.vue';
   import BlackScreen from '/src/components/BlackScreen.vue';
@@ -210,7 +210,7 @@
   export default {
     components: {
       ProfileBars,
-      WelcomeMessage,
+      
       Inventory,
       BlackScreen,
       CharacterEquipment,

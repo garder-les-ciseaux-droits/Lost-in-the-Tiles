@@ -51,6 +51,9 @@ export default {
       // Скрываем черный экран после загрузки iframe
       this.isLoading = false;
     },
+  mounted(){
+      console.log(this.iframeSrc)
+    }
   },
 };
 </script>

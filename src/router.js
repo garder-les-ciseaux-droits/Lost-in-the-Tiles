@@ -4,7 +4,7 @@ import Game from '/src/components/BattleField.vue';
 import App from '/src/App.vue';
 import Home from '/src/components/Home.vue';
 import Scene from '/src/components/Scene.vue';
-
+import Battle from '/src/assets/public/Battle.vue'
 
 
 export default createRouter ({
@@ -12,7 +12,7 @@ export default createRouter ({
   routes: [
     {
         path: '/',
-        component: Game
+        component: Battle
     },
 
     {

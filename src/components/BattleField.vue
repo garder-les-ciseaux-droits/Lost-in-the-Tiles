@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      iframeSrc: '/Lost-in-the-Tiles/src/assets/public/index.html',
+      iframeSrc: '/src/assets/public/index.html',
       isLoading: true, // Состояние загрузки
     };
   },
@@ -53,7 +53,18 @@ export default {
     }
   },
   mounted(){
-      console.log(this.iframeSrc)
+      function saveBotSettings(botLevel, timerTimeMs) {
+        localStorage.setItem('botLevel', botLevel.toString());
+        localStorage.setItem('timerTime', timerTimeMs.toString());
+      }
+
+      // Получение данных из localStorage
+
+
+      // Пример использования
+      saveBotSettings(6, 5);
+
+    
   }
 };
 </script>

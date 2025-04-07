@@ -4,6 +4,5 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Lost-in-the-Tiles/',
   plugins: [vue()],
 })

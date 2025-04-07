@@ -1,7 +1,391 @@
+<template>
+    <body>
 
-import { addCapturedPiece,  changeEnergy, fillCircle, changeCurrentTurn} from "./timerAndCapture.js";
-import { createVideoElement, applyChromaKey } from "./visual.js"
-import { startMoveTutorial, isLengthWatching, enemyArrival, isEnemyArrived } from "./tutorial.js";
+        <div id="loading-screen" style="z-index: 900000"></div>
+        <!-- <button id="checkFilter" >TAP</button> -->
+        <div id="currentPlayer">
+            <img class="shield" alt="enemy-turn" src="/src/assets/public/resources/Gui/shield-4-svgrepo-com.svg" style="display: none;">
+            <img class="sword" alt="player-turn" src="/src/assets/public/resources/Gui/sword-svgrepo-com.svg">
+        </div>
+
+       
+
+        
+
+      
+    
+        <div id="end-screen">
+            <div class="black-banner">
+                <div id="end-images">
+                    <img id="win-img" src="/src/assets/public/resources/backgrounds/endScreen/victory.svg" style="display: none;">
+                    <img id="lose-img" src="/src/assets/public/resources/backgrounds/endScreen/defeat.svg" style="display: none;">
+                    <img id="draw-img" src="/src/assets/public/resources/backgrounds/endScreen/draw.svg" style="display: none;">
+                </div>
+                <div id="end-button">
+                    <button id="repeat-battle">
+                        <span>Try again</span>
+                        <img src="/src/assets/public/resources/backgrounds/endScreen/buttons/repeat-svgrepo-com.svg">
+                    </button>
+                    <button id="quit-battle">
+                        <span>Continue</span>
+                        <img src="/src/assets/public/resources/backgrounds/endScreen/buttons/arrow-sm-right-svgrepo-com.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="cards-btn" class="cards-button">
+            <button class="cards-inner">
+
+            </button>
+        </div> -->
+
+
+        <div id="crd-cont" class="cards-container">
+        </div>
+
+        <div id="desc-cont" class="desc-container">
+
+        </div>
+
+        <!-- <div class="skill-char-container">
+            
+        </div> -->
+
+
+
+        <div class="player-container">
+            <div class="player-capture">
+            
+            </div>
+        </div>
+
+
+        <div class="enemy-container">
+            <div class="enemy-capture">
+             
+            </div>
+        </div>
+    <div class="container">
+
+        <div class="ui-container">
+            <div class="ui">
+                
+            </div>
+            <div class="current-energy" style="display: none;">
+                <div class="energy-circle">
+                    <img src="/src/assets/public/resources/Skills/Energy/power-svgrepo-com.svg">
+                  
+                        <span class="energy-number"></span>
+                    <div class="energy">
+                        <div class="wave">
+                              <div></div>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+            </div>
+            <div class="timer">
+                
+                <span class="timer-numbers">04:59</span>
+            </div>
+        </div>
+        
+        
+        <div class="chessboard" id="chessboard">
+           
+        </div>
+
+        <div id="settings" style="z-index: 5000000;">
+            <a href="/home"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0001 3H3.00006V21H21.0001V3ZM8.13177 16.8033L16.1318 16.8033L16.1318 8.80331H14.1318V13.3891L7.88913 7.14645L6.47491 8.56067L12.7176 14.8033H8.13177V16.8033Z" fill="#ffffff"></path> </g>
+            </svg></a>
+            
+        </div>
+
+        
+
+        <!-- <div class="background">               
+        </div> -->
+
+    </div>
+
+
+    <!-- <div id="settings-menu">
+        <h1>SETTINGS</h1>
+    </div> -->
+
+    <audio id="move-tile-sound" src="/src/assets/public/resources/Sounds/rocks-sliding-101019 (mp3cut.net).mp3"></audio>
+    <audio id="battle-sound" src="/src/assets/public/resources/videos/effects/swords_battle.mp3"></audio>
+    <audio id="click-sound" src="/src/assets/public/resources/Sounds/souds/Click_2.wav"></audio>
+    <audio id="changeStatus" src="/src/assets/public/resources/Sounds/souds/Bleep_01.ogg"></audio>
+
+    <audio id="background-music" src="/src/assets/public/resources/Sounds/Sci-Fi Music Pack Vol. 2/Loops/mp3/5 - Stellar Drift  (Loop).mp3" loop ></audio>
+    <audio id="background-wind" src="/src/assets/public/resources/Sounds/Cold Wind Sound Effect No Copyright Free.mp3" loop ></audio>
+    <audio id="skills-voices"></audio>
+    <audio id="enemyAVB" src="/src/assets/public/resources/TutorialResources/isnotenought.mp3"></audio>
+   
+
+    <!-- <script type="module" src="./settings.js"></script> -->
+    <!-- <script type="module" src="./index.js"></script> -->
+
+    <!-- <script type="module" src="./timerAndCapture.js"></script>
+    
+    
+    <script src="./engine/stockfish-16.1-single.js"></script>
+    <script type="module" src="./tutorial.js"></script>
+    <script type="module" src="./visual.js"></script>
+    <script type="module" src="./ui.js"></script>
+
+    <script src="./music.js"></script> -->
+
+
+
+    
+   <!-- <script> -->
+
+
+
+
+   <!-- </script> -->
+</body>
+</template>
+
+<script>
+export default {
+    mounted(){
+
+    function createImageElement(src, location) {
+    const imgElement = document.createElement('img');
+    imgElement.src = src;
+    imgElement.style.width = '110px';
+    imgElement.style.height = '167px';
+   
+    const divElement = document.createElement('div');
+    divElement.classList.add('canvas-gif')
+
+    divElement.appendChild(imgElement)
+  
+    location.appendChild(divElement);
+
+    setTimeout(() => {
+        location.removeChild(divElement);
+      }, 600);
+  
+}
+
+
+
+// Функция для создания видео элемента
+function createVideoElement(src, location, width, height) {
+    const videoElement = document.createElement('video');
+    videoElement.src = src;
+    videoElement.autoplay = true;
+    videoElement.loop = true;
+    videoElement.muted = true;
+    videoElement.playsInline = true;
+    videoElement.style.width = width;
+    videoElement.style.height = height;
+    videoElement.classList.add('videoLayer');
+    
+    location.appendChild(videoElement);
+  
+
+    setTimeout(() => {
+        location.removeChild(videoElement);
+      }, 1500);
+
+    return videoElement;
+  }
+  
+  // Функция для применения хромакея и отображения на canvas
+  function applyChromaKey(videoElement, location, width, height, top, left) {
+    const canvas = document.createElement('canvas');
+    canvas.classList.add('canvas')
+    canvas.style.width = width;
+    canvas.style.height = height;
+    canvas.style.top = top;
+    canvas.style.left = left;
+
+    location.appendChild(canvas);
+
+    setTimeout(() => {
+        location.removeChild(canvas);
+      }, 1500);
+    const ctx = canvas.getContext('2d');
+  
+    videoElement.addEventListener('play', () => {
+      canvas.width = videoElement.videoWidth;
+      canvas.height = videoElement.videoHeight;
+  
+      function renderFrame() {
+        if (!videoElement.paused && !videoElement.ended) {
+          ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+          const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = frame.data;
+  
+          // Удаление зеленого фона
+          for (let i = 0; i < data.length; i += 4) {
+            const red = data[i];
+            const green = data[i + 1];
+            const blue = data[i + 2];
+  
+            // Проверка на зеленый цвет
+            if (green > 100 && red < 100 && blue < 100) {
+              data[i + 3] = 0; // Устанавливаем альфа-канал в 0 (прозрачный)
+            }
+          }
+  
+          ctx.putImageData(frame, 0, 0);
+          requestAnimationFrame(renderFrame);
+        }
+      }
+  
+      renderFrame();
+    });
+  }
+  
+
+    
+
+function addCapturedPiece(piece, isPlayerTurn){
+    const playerContainer = document.querySelector('.player-capture');
+    const enemyContainer = document.querySelector('.enemy-capture');
+    const image = document.createElement('img');
+
+    image.classList.add('current-captured');
+
+
+
+    if(piece === piece.toLowerCase() && isPlayerTurn){
+        image.src = pieces.find(x => x.type === piece).img;
+        image.dataset.type = piece;
+        image.style.filter = 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.8))';
+        playerContainer.append(image);
+    }
+    else if(piece === piece.toUpperCase() && !isPlayerTurn){
+        image.src = pieces.find(x => x.type === piece).img;
+        image.dataset.type = piece;
+        enemyContainer.append(image);
+    }
+    else if(piece === piece.toLowerCase() && !isPlayerTurn){
+        image.src = pieces.find(x => x.type === piece).img;
+        image.style.filter = 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.8))';
+        image.dataset.type = piece;
+        enemyContainer.append(image);
+    }
+    else{
+        image.src = pieces.find(x => x.type === piece).img;
+        image.dataset.type = piece;
+        playerContainer.append(image);
+    }
+}
+
+const pieces = [
+    {
+        type: 'P', img: '/src/assets/public/resources/capturedPieces/pawn-svgrepo-com.svg'
+    },
+    {
+        type: 'R', img: '/src/assets/public/resources/capturedPieces/rook-svgrepo-com.svg'
+    },
+    {
+        type: 'N', img: '/src/assets/public/resources/capturedPieces/knight-svgrepo-com.svg'
+    },
+    {
+        type: 'B', img: '/src/assets/public/resources/capturedPieces/bishop-svgrepo-com.svg'
+    },
+    {
+        type: 'Q', img: '/src/assets/public/resources/capturedPieces/pawn-svgrepo-com.svg'
+    },
+    {
+        type: 'K', img: '/src/assets/public/resources/capturedPieces/king-svgrepo-com.svg'
+    },
+    {
+        type: 'p', img: '/src/assets/public/resources/capturedPieces/pawn-svgrepo-com-b.svg'
+    },
+    {
+        type: 'r', img: '/src/assets/public/resources/capturedPieces/rook-svgrepo-com-b.svg'
+    },
+    {
+        type: 'n', img: '/src/assets/public/resources/capturedPieces/knight-svgrepo-com-b.svg'
+    },
+    {
+        type: 'b', img: '/src/assets/public/resources/capturedPieces/bishop-svgrepo-com-b.svg'
+    },
+    {
+        type: 'q', img: '/src/assets/public/resources/capturedPieces/queen-svgrepo-com-b.svg'
+    },
+    {
+        type: 'k', img: '/src/assets/public/resources/capturedPieces/king-svgrepo-com-b.svg'
+    }
+];
+
+
+
+
+function testCaptureContainer(number){
+    let testPiece = 'p';
+    const playerContainer = document.querySelector('.player-capture');
+    const enemyContainer = document.querySelector('.enemy-capture');
+    const image = document.createElement('img');
+
+    image.classList.add('current-captured');
+    for(let i = 0; i < number; i++){
+        const image = document.createElement('img');
+        image.src = pieces.find(x => x.type === testPiece).img;
+        image.dataset.type = testPiece;
+        image.style.filter = 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.8))';
+        enemyContainer.append(image);
+        playerContainer.append(image);
+    }
+}
+
+
+function fillCircle(percentage) {
+    // Ограничиваем значение от 0 до 300
+    if (percentage < 0) percentage = 0;
+    if (percentage > 300) percentage = 300;
+
+    // Вычисляем процент заполнения
+    const waterLevel = (percentage / 300) * 100;
+
+    // Обновляем высоту элемента воды
+    const waterElement = document.querySelector('.wave');
+    waterElement.style.width = waterLevel + '%';
+
+    const textElement = document.querySelector('.energy-number');
+    textElement.textContent = percentage
+}
+
+
+
+
+function changeEnergy(energy, value){
+    energy += value;
+}
+
+function changeCurrentTurn(isPlayerTurn, isFirst){
+    const sword = document.querySelector('.sword');
+    const shield = document.querySelector('.shield');
+
+    
+    if(isPlayerTurn){
+        if(!isFirst){
+            // startAudio(false, false, false, true);
+        }
+      
+        shield.style.display = 'none';
+        sword.style.display = 'flex';
+    }
+    else{
+        sword.style.display = 'none';
+        shield.style.display = 'flex';
+    }
+}
+
+// import { addCapturedPiece,  changeEnergy, fillCircle, changeCurrentTurn} from "./timerAndCapture.js";
+// import { createVideoElement, applyChromaKey } from "./visual.js"
+// import { startMoveTutorial, isLengthWatching, enemyArrival, isEnemyArrived } from "./tutorial.js";
 // import {abilityFunctions} from './ui.js'
 function saveBotSettings(botLevel, timerTimeMs) {
         localStorage.setItem('botLevel', botLevel.toString());
@@ -27,33 +411,33 @@ const settings = getBotSettings();
 const chessboard = document.getElementById('chessboard');
 let selectedPiece = null;
 let playerSide = 'white';
-export let currentPlayer = 'white'; 
+let currentPlayer = 'white'; 
 let bot = currentPlayer === 'white' ? 'black' : 'white'
 let hasKingMoved = { white: false, black: false };
 let hasRookMoved = { whiteKingside: false, whiteQueenside: false, blackKingside: false, blackQueenside: false };
 let lastPawnMove = null;
 
-export let isPlayerTurn = true; 
+let isPlayerTurn = true; 
 let isInputBlocked = false; 
 
 let tileStates = {};
 let isRestrictedPiece = null;
-export let energy = 100;
-fillCircle(energy);
+let energy = 100;
+// fillCircle(energy);
 
-export let isTutorialMode = false;
+let isTutorialMode = false;
 let isSingleMoveAllowed = false;
 
 
-export function enableTutorialMode() {
+function enableTutorialMode() {
     isTutorialMode = true;
 }
 
-export function disableTutorialMode() {
+function disableTutorialMode() {
     isTutorialMode = false;
 }
 
-export function enableSingleMove() {
+function enableSingleMove() {
    
     const pieces = document.querySelectorAll('.piece');
     const tiles = document.querySelectorAll('.tile');
@@ -104,7 +488,7 @@ export function enableSingleMove() {
 }
 
 
-export function decreaseEnergy(value){
+function decreaseEnergy(value){
     energy -= value;
     fillCircle(energy);
 }
@@ -121,31 +505,31 @@ changeCurrentTurn(isPlayerTurn, true)
 
 
 // let whiteTile = 'linear-gradient(133deg, rgba(250,252,248,1) 0%, rgba(255,206,255,1) 100%)'
-// let whiteTile = "url('./resources/whiteabove2.png') center center / cover no-repeat, #1b1b1ba8";
-let whiteTile = "url('./resources/whiteabove3.png')";
+// let whiteTile = "url('/src/assets/public/resources/whiteabove2.png') center center / cover no-repeat, #1b1b1ba8";
+let whiteTile = "url('/src/assets/public/resources/whiteabove3.png')";
 let whiteAnimation = 'none';
 let blackAnimation = 'none';
 let backgroundSizeWhite = '100% 100%';
 let backgroundSizeBlack = '100% 100%';
-let blackTile = "url('./resources/blackabove.png') center center / cover no-repeat, #101010";
+let blackTile = "url('/src/assets/public/resources/blackabove.png') center center / cover no-repeat, #101010";
 
 
-export function startAudio(isMove, isBattle, isCustom, isStatus, isClick, isClickDenied){
+function startAudio(isMove, isBattle, isCustom, isStatus, isClick, isClickDenied){
     const audioForTile = document.getElementById('move-tile-sound');
     const battleSoundAudio =  document.getElementById('battle-sound');
     const changeStatus = document.getElementById('changeStatus');
     const clickSound = document.getElementById('click-sound');
     if(isMove){
-        audioForTile .src = './resources/Sounds/rocks-sliding-101019 (mp3cut.net).mp3';
+        audioForTile .src = '/src/assets/public/resources/Sounds/rocks-sliding-101019 (mp3cut.net).mp3';
         audioForTile .volume = 0.1;
         audioForTile .play();
     }
     if(isBattle){
         if(isCustom){
-            battleSoundAudio.src = './resources/Characters/images/allchars/Pacifica/sounds/water_pouring_out_of.mp3';
+            battleSoundAudio.src = '/src/assets/public/resources/Characters/images/allchars/Pacifica/sounds/water_pouring_out_of.mp3';
         }
         else{
-            battleSoundAudio.src = './resources/videos/effects/swords_battle.mp3';
+            battleSoundAudio.src = '/src/assets/public/resources/videos/effects/swords_battle.mp3';
         }
         battleSoundAudio.volume = 0.1;
         battleSoundAudio.play();
@@ -158,10 +542,10 @@ export function startAudio(isMove, isBattle, isCustom, isStatus, isClick, isClic
   
     if(isClick){
         if(!isClickDenied){
-         clickSound.src = './resources/Sounds/souds/Click_2.wav'
+         clickSound.src = '/src/assets/public/resources/Sounds/souds/Click_2.wav'
         }
         else{
-            clickSound.src = './resources/Sounds/souds/Denied_01.ogg'
+            clickSound.src = '/src/assets/public/resources/Sounds/souds/Denied_01.ogg'
         }
        
         clickSound.volume = 0.1;
@@ -180,10 +564,10 @@ function moveTileSound() {
 function battleSound(isCustom) {
     const audio = document.getElementById('battle-sound');
     if(isCustom){
-        audio.src = './resources/Characters/images/allchars/Pacifica/sounds/water_pouring_out_of.mp3';
+        audio.src = '/src/assets/public/resources/Characters/images/allchars/Pacifica/sounds/water_pouring_out_of.mp3';
     }
     else{
-        audio.src = './resources/videos/effects/swords_battle.mp3';
+        audio.src = '/src/assets/public/resources/videos/effects/swords_battle.mp3';
     }
     audio.volume = 0.1;
     audio.play();
@@ -508,7 +892,7 @@ function createPiece(type, row, col) {
 
 // Handle click on a tile
 function handleTileClick(row, col, tile) {
-    console.log('a')
+   
     if (!isPlayerTurn || isInputBlocked || !isInteractionComplete) return;
 
     const piece = tile.querySelector('.piece');
@@ -534,7 +918,7 @@ function handleTileClick(row, col, tile) {
                     clearInterval(validInterval);
                  
                 }
-                startMoveTutorial(false);
+                // startMoveTutorial(false);
                 document.getElementById('moveTutor').style.pointerEvents = 'all'
                 switchTurn();
                 isInputBlocked = false; 
@@ -1535,51 +1919,6 @@ function countDownTimer(){
 // Switch turns and check for checkmate, then let Stockfish play
 
 function switchTurn() {
-    if(isLengthWatching){
-        const isLengthTwo = watchMoveHistory(6);
-        const isLengthSix = watchMoveHistory(8);
-        if(isLengthTwo && !isEnemyArrived){
-            const pieces = document.querySelectorAll('.piece');
-            for(let piece of pieces ){
-                if(piece.dataset.id === 'q'){
-                    const image = piece.querySelector('img');
-                    
-                    image.style.opacity = 0;
-                    // enableTutorialMode();
-                    setTimeout(()=>{
-                        image.src = './resources/SentinelPieces/svg/enemies/enemy-piece-b.svg';
-                    },500)
-                 
-                    // setTimeout(()=>{
-                    //     image.style.opacity = 1;
-                    //     const nextButton = document.querySelectorAll('.next-tutor-slide');
-                    //     nextButton.forEach(btn =>{
-                    //         btn.addEventListener('click', () => enemyArrival(false))
-                        
-                    //     })
-                    //     enemyArrival(true);
-                    //     setTimeout(()=>{
-                    //         disableTutorialMode();
-                    //     }, 9000)
-                    // },1000)
-                }
-            }
-        }
-        // else if(isLengthSix){
-        //     // abilityFunctions["Root enemy piece"];
-        //     document.getElementById('enemyArrival').style.pointerEvents = 'all';
-        //     enemyArrival(false);
-        //     rootEnemyPiece(isPlayerTurn, 4);
-        //     const audio = document.querySelector('#enemyAVB');
-        //     audio.volume = 0.5;
-        //     audio.play();
-        //     setTimeout(() => { 
-
-        //         document.getElementById('enemyArrival').style.pointerEvents = 'none';
-        //     }, 6000)
-            
-        // }
-    }
 
     // if(isLongSkillActive){
     //     const length = watchMoveHistory(watchingLength);
@@ -1639,6 +1978,7 @@ function switchTurn() {
         getBestMove(fen, function(bestMove) {
             const { fromRow, fromCol, toRow, toCol } = uciToMove(bestMove);
 
+           
             
             if (initialBoardState[fromRow] && initialBoardState[fromRow][fromCol]) {
                 
@@ -2002,7 +2342,7 @@ function updateHalfmoveClock(piece, target) {
 
 
 // Initialize Stockfish as a web worker
-let stockfish = new Worker('./resources/engine/stockfish-16.1-single.js');
+let stockfish = new Worker('/src/assets/public/resources/engine/stockfish-16.1-single.js');
 
 // Log Stockfish responses
 // Helper function to convert the board state to FEN
@@ -2091,46 +2431,46 @@ function uciToMove(uci) {
 
 
 
-export let customPieces = [
-    { piece: 'P', image: './resources/pieces/white/pawn.svg' },
-    { piece: 'p', image: './resources/pieces/black/pawn2.svg' },
-    { piece: 'R',  image: './resources/pieces/white/rook.svg' },
-    { piece: 'R1',   image: './resources/pieces/white/rook.svg' },
-    { piece: 'r',  image: './resources/pieces/black/rook2.svg' },
-    { piece: 'r1', image: './resources/pieces/black/rook2.svg' },
-    { piece: 'N',  image: './resources/pieces/white/knight.svg' },
-    { piece: 'N1',   image: './resources/pieces/white/knight.svg' },
-    { piece: 'n', image:'./resources/pieces/black/knight2.svg' },
-    { piece: 'n1',   image:'./resources/pieces/black/knight2.svg' },
-    { piece: 'B',  image: './resources/pieces/white/bishop.svg'},
-    { piece: 'B1',   image: './resources/pieces/white/bishop.svg'},
-    { piece: 'b', image: './resources/pieces/black/bishop2.svg' },
-    { piece: 'b1',  image: './resources/pieces/black/bishop2.svg' },
-    { piece: 'Q', image:'./resources/pieces/white/queen.svg'},
-    { piece: 'q',  image: './resources/pieces/black/queen2.svg' },
-    { piece: 'K', image: './resources/pieces/white/king.svg' },
-    { piece: 'k', image: './resources/pieces/black/king2.svg' }
+let customPieces = [
+    { piece: 'P', image: '/src/assets/public/resources/pieces/white/pawn.svg' },
+    { piece: 'p', image: '/src/assets/public/resources/pieces/black/pawn2.svg' },
+    { piece: 'R',  image: '/src/assets/public/resources/pieces/white/rook.svg' },
+    { piece: 'R1',   image: '/src/assets/public/resources/pieces/white/rook.svg' },
+    { piece: 'r',  image: '/src/assets/public/resources/pieces/black/rook2.svg' },
+    { piece: 'r1', image: '/src/assets/public/resources/pieces/black/rook2.svg' },
+    { piece: 'N',  image: '/src/assets/public/resources/pieces/white/knight.svg' },
+    { piece: 'N1',   image: '/src/assets/public/resources/pieces/white/knight.svg' },
+    { piece: 'n', image:'/src/assets/public/resources/pieces/black/knight2.svg' },
+    { piece: 'n1',   image:'/src/assets/public/resources/pieces/black/knight2.svg' },
+    { piece: 'B',  image: '/src/assets/public/resources/pieces/white/bishop.svg'},
+    { piece: 'B1',   image: '/src/assets/public/resources/pieces/white/bishop.svg'},
+    { piece: 'b', image: '/src/assets/public/resources/pieces/black/bishop2.svg' },
+    { piece: 'b1',  image: '/src/assets/public/resources/pieces/black/bishop2.svg' },
+    { piece: 'Q', image:'/src/assets/public/resources/pieces/white/queen.svg'},
+    { piece: 'q',  image: '/src/assets/public/resources/pieces/black/queen2.svg' },
+    { piece: 'K', image: '/src/assets/public/resources/pieces/white/king.svg' },
+    { piece: 'k', image: '/src/assets/public/resources/pieces/black/king2.svg' }
 ];
 
-export let customAttack = [
-    { piece: 'P', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
-    { piece: 'p', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
-    { piece: 'R',  custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'R1', custom: false,  image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'r', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'r1',custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'N', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4' , sound: '' },
-    { piece: 'N1', custom: false,  image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'n', custom: false,image:'./resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'n1', custom: false,  image:'./resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'B', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
-    { piece: 'B1', custom: false,  image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
-    { piece: 'b', custom: false,image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'b1', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'Q',custom: false, image:'./resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
-    { piece: 'q', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'K', custom: false,image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
-    { piece: 'k', custom: false, image: './resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  }
+let customAttack = [
+    { piece: 'P', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
+    { piece: 'p', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
+    { piece: 'R',  custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'R1', custom: false,  image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'r', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'r1',custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'N', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4' , sound: '' },
+    { piece: 'N1', custom: false,  image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'n', custom: false,image:'/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'n1', custom: false,  image:'/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'B', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
+    { piece: 'B1', custom: false,  image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
+    { piece: 'b', custom: false,image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'b1', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'Q',custom: false, image:'/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: '' },
+    { piece: 'q', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'K', custom: false,image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  },
+    { piece: 'k', custom: false, image: '/src/assets/public/resources/videos/effects/fighting-cloud (online-video-cutter.com).mp4', sound: ''  }
 ]
 
 
@@ -2270,7 +2610,7 @@ function loadFEN(fen) {
 let moveHistory = [];
 
 
-export function setTime(newTime) {
+function setTime(newTime) {
     time += newTime;
     setTimeout(()=>{
         isInteractionComplete = true;
@@ -2281,18 +2621,18 @@ export function setTime(newTime) {
 
 
 
-export let isInteractionComplete = true;
+let isInteractionComplete = true;
 let isLongSkillActive = false;
 let watchingLength = null;
-export function changeStatus(){
+function changeStatus(){
     isInteractionComplete = !isInteractionComplete;
 }
 
-export function watchMoveHistory(length){
+function watchMoveHistory(length){
     if(moveHistory.length === length) return true;
 }
 
-export function rootEnemyPiece(isPlayer, power) {
+function rootEnemyPiece(isPlayer, power) {
     if (!isPlayer) {
         const pieces = Array.from(document.querySelectorAll('.piece'));
         
@@ -2317,7 +2657,7 @@ export function rootEnemyPiece(isPlayer, power) {
 
             isRestrictedPiece = matchingPiece;
             const imgRoot = document.createElement('img');
-            imgRoot.src = './resources/Skills/Skills/cobweb.svg';
+            imgRoot.src = '/src/assets/public/resources/Skills/Skills/cobweb.svg';
             imgRoot.loading = 'lazy';
             imgRoot.style.width = '110px';
             imgRoot.style.height = '167px';   
@@ -2339,7 +2679,7 @@ export function rootEnemyPiece(isPlayer, power) {
 
 
 
-export let startingFEN = '';
+let startingFEN = '';
 
 if(startingFEN){
     loadFEN(startingFEN)
@@ -2363,4 +2703,1463 @@ if(currentPlayer === 'black' && !startingFEN){
     switchTurn(); 
 }
 
+
+
 // enableTutorialMode();
+    }}
+</script>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100vw;
+    background: rgb(21, 21, 21);
+  
+    overflow-y: hidden;
+    /* background-image: url('/src/assets/public/resources/backgrounds/N97CMVWEAFDVPX4ADRVZ6EEWG0.jpeg'); */
+    background-position: center;
+    background-size: cover;
+}
+
+
+#settings-menu{
+    position: fixed;
+    
+    width: 30%;
+    height: 100%;
+    right: 0;
+    background-color: #1b1b1b;
+}
+
+#settings-menu h1{ 
+    font-size: medium;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+#settings{
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+}
+
+.chessboard {
+    /* display: grid; */
+    grid-template-columns: repeat(8, 120px);
+    grid-template-rows: repeat(8, 120px);
+    gap: 20px;
+    perspective: 2500px; 
+    /* transform: rotateX(20deg) scale(1.6) rotateZ(0deg);  */
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+    z-index: 40;
+    transform: rotateX(5deg) scale(0.6) rotateZ(0deg) ; 
+    will-change: transform;
+    backface-visibility: hidden;
+    margin-top: 1rem;
+    /* animation: scaleDown 10s ease-in-out forwards;  */
+}
+
+
+
+/* Анимация плавного изменения масштаба */
+@keyframes scaleDown {
+    from {
+       transform: rotateX(40deg) scale(1.6) rotateZ(0deg); 
+    }
+    to {
+        transform: rotateX(10deg) scale(1) rotateZ(0deg); 
+    }
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* perspective: 1000px;  */
+    transform-style: preserve-3d;
+   
+}
+
+.videoLayer{
+    z-index: 50000;
+    
+}
+
+
+.tile {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+  
+    animation: none;
+ 
+}
+
+.on-lower-plane{
+    
+    /* animation: randomBounce 5s infinite ease-in-out;
+    animation-delay: var(--delay); */
+}
+
+
+.tile.on-lower-plane .front {
+    /* box-shadow: 0px 0px 48px 20px rgba(0,0,0,0.61); */
+    /* transition: box-shadow 0.3s ease-in-out; */
+
+
+ 
+}
+
+
+.on-lower-plane.no-bounce {
+    animation: none;
+}
+
+
+
+
+.pause{
+    animation-play-state: paused;
+}
+
+@keyframes rotateTileLower {
+    0% {
+        transform: translateZ(-80px);
+    }
+    50% {
+        transform: translateZ(-60px);
+    }
+    100% {
+        transform: translateZ(-80px);
+    }
+}
+
+
+.tile-animation{
+    animation: rotateTileLower 6s ease-in-out infinite; 
+    animation-play-state: running;
+}
+
+.pause {
+    animation-play-state: paused;
+  
+}
+
+.no-animation{
+    animation: none;
+   
+}
+
+
+
+
+.hover-border{
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    pointer-events: all; 
+    transform-style: preserve-3d;
+    
+
+
+}
+
+.tile.on-lower-plane .hover-border:hover{
+    border-color: rgb(255, 255, 255);
+    filter: drop-shadow(0px 0px 5px rgb(164, 79, 255));
+}
+
+
+
+
+
+
+
+
+.tile:hover{
+    /* transform: translateZ(40px); */
+}
+
+
+.face {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #ffffff;
+    transition: filter 1s ease-in-out;;
+  
+    /* box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.2);  */
+}
+
+.front {
+    transform: translateZ(60px);
+    background-color: rgb(62, 83, 64);
+    /* box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.5); */
+  
+    /* box-shadow: 0px 0px 17px 21px rgba(47, 47, 47, 0.7); */
+    transition: border 0.5s ease;
+     
+}
+.back {
+    transform: rotateY(180deg) translateZ(60px);
+    background-color: rgb(51, 51, 51); 
+   
+ 
+  
+}
+.left {
+    transform: rotateY(-90deg) translateZ(60px);
+    background-color: rgb(230, 230, 230);
+  
+   
+}
+.right {
+    transform: rotateY(90deg) translateZ(60px);
+    background-color: rgb(230, 230, 230);
+   
+   
+}
+.top {
+    transform: rotateX(90deg) translateZ(60px);
+    background-color: rgb(255, 255, 255);
+   
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(60px);
+    background-color: rgb(51, 51, 51);
+  
+}
+
+
+/* .tile.on-lower-plane .front {
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.9));
+} */
+.tile.black{
+    box-shadow: none;
+}
+
+
+
+
+.skill-char-container{
+    position: fixed;
+    z-index: 100;
+    left: 5rem;
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.divImage{
+    width: 100%;
+    height: 30rem;
+ 
+}
+.character-div-image{
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.divImage img.show {
+    opacity: 1; 
+}
+
+.divImage img.hide {
+    opacity: 0; 
+}
+
+.testDiv{
+    width: 3rem;
+    height: 3rem;
+    background-color:#1b1b1b;
+    position: absolute;
+    z-index: 10000;
+    top: -40px;
+}
+
+.piece {
+    position: absolute;
+    top: -60px;
+   
+    left: -5px;
+    width: 130px;
+    height: 197px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    z-index: 502; 
+    transform: translateZ(75px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 10px #000000);
+    backface-visibility: hidden;
+    transition: opacity 0.35s ease-in-out,filter 1s ease-in-out;
+ 
+
+  
+}
+
+@keyframes randomBounce {
+    0%, 100% {
+        transform: translateZ(calc(var(--start-z) + var(--amplitude)));
+    }
+    50% {
+        transform: translateZ(var(--start-z));
+    }
+}
+
+.canvas{
+    position: absolute;
+    top: -20px;
+    left: -35px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    z-index: 55002; 
+    transform: translateZ(65px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+   
+}
+
+.canvas-gif{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    z-index: 9002; 
+    transform: translateZ(75px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 10px #000000);
+    backface-visibility: hidden;
+    transition: opacity 0.15s ease-in-out;
+}
+
+/* .piece::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-40%) translateZ(-1px); 
+    width: 50%;
+    height: 10px; 
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 50%; 
+    filter: blur(5px); 
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+  
+} */
+
+img{
+    image-rendering: pixelated;
+}
+
+* {
+    cursor: url('/src/assets/GUI/pointer_scifi_b.svg'), auto;
+  }
+  
+
+.piece img{
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 9002; 
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.9));
+    transform-style: preserve-3d;
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+    image-rendering: pixelated;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.letter-tip{
+    position: absolute;
+    z-index: 10250;
+    bottom: 0;
+    right:  0;
+    top: 5rem;
+    color: rgb(255, 255, 255);
+    font-size: smaller;
+    text-shadow: 0px 0px 5px rgb(164, 79, 255);
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+   
+    will-change: transform;
+    filter: none; 
+}
+
+.letter-tip.visible{
+    opacity: 1;
+}
+
+.tile:hover .letter-tip{
+    opacity: 1;
+}
+
+
+#checkFilter{
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+}
+
+.background {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;     
+    z-index: 10;
+    /* perspective: 1000px; */
+}
+
+
+
+@keyframes rotateCube {
+    0% {
+        transform: var(--base-transform) translateZ(0px);
+    }
+    50% {
+        transform: var(--base-transform) translateZ(20px);
+    }
+
+    100% {
+        transform: var(--base-transform) translateZ(0px);
+    }
+}
+
+
+.cube {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: 10px;
+    animation: rotateCube 6s ease-in-out infinite; /* Анимация применяется ко всем кубам */
+    transform: var(--base-transform); /* Сразу устанавливаем базовую трансформацию */
+    will-change: transform; /* Оптимизация для аппаратного ускорения */
+    animation-play-state: running; 
+  
+}
+
+
+.cube div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid #ccc; */
+   
+ 
+}
+
+.cube .frontc  { transform: translateZ(40px); }
+.cube .backc  { 
+    transform: rotateY(180deg) translateZ(40px); 
+    box-shadow: 0px 0px 40px 20px rgba(44, 44, 44, 0.35);
+   
+   
+   
+   
+}
+.cube .rightc  { transform: rotateY(90deg) translateZ(40px); }
+.cube .leftc  { transform: rotateY(-90deg) translateZ(40px); }
+.cube .topc   { transform: rotateX(90deg) translateZ(40px); }
+.cube .bottomc { transform: rotateX(-90deg) translateZ(40px);
+    /* box-shadow: 0px 0px 20px 20px rgba(44, 44, 44, 0.3); */
+}
+
+/* Цвета для чередования */
+.blackc { background-color: black !important;
+    /* box-shadow: 0 0 20px rgba(65, 65, 65, 0.7);  */
+}
+.whitec { background-color: white !important; 
+    /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); */
+}
+
+
+
+.ui{
+    position: relative;
+    width: 15rem;
+    height: 27rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    padding-right: 0.5rem;
+
+   
+}
+
+.ui-container{
+    position: fixed;
+    width: 18rem;
+    height: 100%;
+    z-index: 100;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+img{
+ 
+    shape-rendering: geometricPrecision;
+    z-index: 1000;
+    
+}
+.timer{
+    width: 15rem;
+    height: 5rem;
+    /* background-color: #121212; */
+    position: fixed;
+    top: 0;
+    padding-right: 3rem;
+/*  
+    border-top-left-radius: 1rem; */
+    /* border-bottom-left-radius: 1rem; */
+    /* border-bottom: 1px solid snow; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); */
+}
+.timer-numbers{
+    color: white;
+    filter: drop-shadow(0px 0px 2px white);
+    font-size: x-large;
+    letter-spacing: 4px;
+
+}
+
+
+.char{
+    position: relative;
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    justify-content: end;
+    align-items:end;
+    border: 1px solid white;
+    border-top-left-radius: 1em;
+    margin-bottom: 2rem;
+    box-shadow: inset 0px 0px 30px -16px rgba(255,255,255,0.99);
+}
+.char img{
+    width: 9rem;
+    height: 10rem;
+    filter: drop-shadow(5px 5px 10px #000000);
+}
+
+
+@keyframes background-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+.player-container{
+    position: fixed;
+    
+    margin-top: 15rem;
+    margin-left: 1rem;
+    left: 0;
+    width: 20rem;
+    height: 7rem;
+    z-index: 100;
+   
+
+
+}
+
+
+.player-capture{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1.5rem);
+    grid-template-rows: repeat(2, 3rem);
+
+   
+}
+
+.player-capture img{
+    width: 3rem;
+    height: 2.5rem;
+    margin: 0;
+    align-self: center;
+    filter: drop-shadow(0px 0px 5px rgb(6, 6, 6))
+
+}
+
+
+
+.enemy-container{
+    position: fixed;
+   
+    left: 0;
+    width: 20rem;
+    height: 7rem;
+    margin-bottom: 15rem;
+    margin-left: 1rem ;
+    z-index: 100;
+   
+
+
+}
+
+.enemy-capture{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1.5rem);
+    grid-template-rows: repeat(2, 3rem);
+
+}
+
+
+.enemy-capture img{
+    width: 3rem;
+    height: 2.5rem;
+    margin: 0;
+    align-self: center;
+    filter: drop-shadow(0px 0px 5px rgb(6, 6, 6))
+
+}
+
+#currentPlayer{
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+#currentPlayer img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.cards-button{
+    position: fixed;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(208, 208, 208);
+    clip-path: polygon(68.69% 79.28%, 0% 100%, 0% 0%, 68.69% 18.62%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.cards-inner{
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgb(22, 22, 22);
+    clip-path: polygon(68.69% 79.28%, 0% 100%, 0% 0%, 68.69% 18.62%);
+    left: 0;
+}
+
+
+.cards-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 101;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    backdrop-filter: blur(2px);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.desc-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 5000;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    backdrop-filter: blur(2px);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.sub-container{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.left-side{
+    width: 50%;
+    height: 100%;
+    padding-left: 5rem;
+    padding-top: 20rem;
+    color: white;
+    display: flex;
+    justify-content: end;
+   
+}
+
+
+.desc-btn{
+    width: 5rem;
+    height: 5rem;
+    border: 0rem solid white;
+    border-radius: 5rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+ 
+ 
+}
+.desc-btn div{
+    width: 100%;
+    height: 100%;
+    background-color: #1b1b1b;
+    color: white;
+    border-radius: 5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cont{
+    width: 25rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+.right-side{
+    width: 50%;
+    height: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4948354341736695) 13%, rgba(0,0,0,0.727328431372549) 37%, rgba(0,0,0,0.73) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    
+
+}
+
+.right-side-cont{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+.main-data{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding-left: 5rem;
+   
+}
+
+.main-data span{
+    color: white;
+    font-size:xx-large;
+
+}
+.main-data p{
+    color: white;
+    font-size:larger;
+
+}
+.detailed-data{
+    width: 100%;
+    height: 80%;
+   
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: start;
+}
+
+.detailed-data span{
+    color: rgba(255, 255, 255, 0.49);
+    font-size:large;
+    align-self: center;
+    
+}
+
+.detailed-data ul{
+    align-self: start;
+    padding: 0;
+    color: white;
+    list-style-type: none;
+
+}
+.detailed-data ul p{
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+
+}
+.detailed-data li{
+    align-items: center;
+}
+
+.detailed-data ul p span{
+    color: white;
+    align-self: self-start;
+}
+
+.detailed-data img{
+    margin-right: 1rem;
+
+}
+
+.energy-demand-text{
+    margin-top: 0.3rem !important;
+    font-size:medium !important;
+    color: rgba(255, 255, 255, 0.757) !important;
+}
+.data-bonus-desc{
+    margin-top: 0.3rem !important;
+    font-size:medium !important;
+    color: rgba(255, 255, 255, 0.757) !important; 
+}
+#desc-cont{
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#crd-cont {
+    position: fixed;
+
+    inset: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 101;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+}
+
+.card {
+    flex-shrink: 0;
+    width: calc(33.33% - 250px);
+    height: 20rem;
+    margin: 0 25px;
+    text-align: center;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    color: white;
+    user-select: none;
+}
+
+
+.card img{
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+
+
+#end-screen{
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    z-index: 2000;
+}
+
+.black-banner{
+    width: 100%;
+    height: 20rem;
+    background-color: rgba(0, 0, 0, 0.798);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity ease-in;
+    animation: smoothAppear 2s ease-in;
+   
+}
+
+@keyframes smoothAppear {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+#end-images{
+    width: 30rem;
+    height: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#end-images img{
+    position: absolute;
+    top: -7rem;
+    width: 40rem;
+    height: 20rem;
+}
+
+#end-button{
+    width: 30rem;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 4rem;
+    margin-right: 0.5rem;
+}
+
+#end-button button{
+    margin-left: 1rem;
+    width: 10rem;
+    height: 3rem;
+    background-color: rgb(20, 20, 20);
+    border: 0.1rem solid aliceblue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px 3px white;
+}
+
+#end-button button:hover{
+    background: rgb(173, 146, 255);
+}
+
+#end-button button:active{
+    background: rgb(106, 61, 242);
+}
+#end-button button img{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+
+.numberToPress{
+    position: absolute;
+    color: wheat;
+    background-color: #1b1b1b;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    bottom: -1rem;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+.altToPress{
+    position: absolute;
+    color: wheat;
+    background-color: #1b1b1b;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    bottom: -1rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+.current-energy{
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.energy-number{
+    color: white;
+   
+    font-size: larger;
+    filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+    z-index: 100;
+
+
+
+}
+
+.energy-number-tutor{
+    color: white;
+   
+    font-size: larger;
+    filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+    z-index: 100;
+
+
+
+}
+.energy-circle{
+    width: 14rem;
+    height: 2rem;
+
+    border: 0.2rem solid white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+
+}
+
+.energy-circle img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.energy{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* background-color: rgb(147, 129, 255); */
+    height: 100%; /* Начальное заполнение 0% */
+    transition: height 0.5s;
+    
+}
+
+
+.energy-circle-tutor{
+    width: 14rem;
+    height: 2rem;
+
+    border: 0.2rem solid white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+
+}
+
+.energy-circle-tutor img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.energy-tutor{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* background-color: rgb(147, 129, 255); */
+    height: 100%; /* Начальное заполнение 0% */
+    transition: height 0.5s;
+    
+}
+
+
+.wave-tutor {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 300%; /* Ширина в два раза больше для плавности анимации */
+    height: 300px;
+    transition: width 0.5s ease;
+}
+
+.wave-tutor svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+.wave-tutor path {
+    fill:  rgb(147, 129, 255); /* Цвет волны */
+    animation: wave-animation 4s infinite linear; /* Анимация волны */
+}
+
+
+.wave {
+            position: absolute;
+            /* bottom: -20px; */
+            left: 0;
+            width: 100%; /* Ширина в два раза больше для плавности анимации */
+            height: 100%;
+            transition: width 0.5s ease;
+          
+}
+
+.wave div {
+            width: 100%;
+            height: 100%;
+            background-color:  rgb(147, 129, 255);
+}
+
+
+.wave path {
+            fill:  rgb(147, 129, 255); /* Цвет волны */
+            animation: wave-animation 4s infinite linear; /* Анимация волны */
+}
+
+
+.tutor-cont{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6000;
+}
+
+.tutor-block{
+    position: fixed;
+    inset: 0;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tutor-slide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+}
+
+.slide1{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+.slide2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    margin-top: 4rem;
+}
+.slide3{
+    position: absolute;
+    top: 0;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    align-items: start;
+
+
+}
+
+.slide3 .right-box{
+    justify-content: center;
+    display: flex;
+}
+.slide3 .right-box button{
+    position: static;
+}
+.slide3 .left-box{
+    justify-content: center;
+}
+
+.slide1 img{
+    transform: scaleX(-1);
+}
+
+
+
+
+
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 1000; /* Убедитесь, что он выше всех остальных элементов */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+#chessboard {
+    display: none; /* Скрываем шахматную доску по умолчанию */
+}
+
+#moveTutor{
+    inset: 0;
+    pointer-events: none;
+    z-index: 60000;
+
+}
+
+#enemyArrival{
+    inset: 0;
+    pointer-events: all;
+    z-index: 60000;
+}
+
+.fullscreen-overlay-chars {
+ 
+    background-color: rgba(0, 0, 0, 0.623);
+    mask-image: linear-gradient(white, white), linear-gradient(white, white);
+    mask-size: calc(100% - 17rem) 100%, 100% calc(100% - 30rem);
+    mask-position: bottom left, bottom left;
+    mask-repeat: no-repeat;
+}
+
+
+
+
+.moveTutor1 {
+    width: 40rem;
+    height: auto; /* Позволяет контейнеру расширяться по высоте */
+    min-height: 10rem; /* Ограничивает высоту, если необходимо */
+    background-color: #1d1d1d;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    border: 0.1rem solid wheat;
+    filter: drop-shadow(0px 1px 5px black);
+    padding: 1rem; /* Внутренние отступы для визуального оформления */
+    overflow: hidden; /* Убирает прокрутку, если текст выходит за пределы */
+}
+
+.enemyTutor1 {
+    inset: 0;
+    display: flex;
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    position: absolute;
+   
+
+
+    margin-top: 4rem;
+}
+
+.next-move-slide{
+    width: 15rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: 0px solid white;
+    background-color: rgb(16, 16, 16);
+    color: #f5deb3;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.next-move-slide img{
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+}
+.next-move-slide:hover{
+    background-color: #f5deb3;
+}
+.moveTutor1 div {
+    width: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+    padding: 0 2rem;
+    white-space: normal; /* Позволяет перенос текста на новую строку */
+    overflow-wrap: break-word; /* Переносит длинные слова на следующую строку */
+  
+}
+
+.moveTutor1 p {
+    margin: 0; /* Убираем внешние отступы для текста */
+    color: white;
+}
+
+.dialogue-box{
+    width: 40rem;
+    height: 15rem;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 2rem;
+    position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid wheat;
+    filter: drop-shadow(0px 1px 5px black);
+}
+
+.left-box{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: larger;
+    padding-left: 2rem;
+   
+}
+.right-box{
+    width: 100%;
+    height: 50%;
+    padding: 0;
+    position: relative;
+}
+.right-box button img{
+    width: 1rem;
+    height: 1rem;
+    transform: scaleX(1);
+    margin-left: 0.5rem;
+}
+
+.right-box button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutor-img{
+    width: 35rem;
+    height: 35rem;
+    
+}
+.slide2 img{
+    width: 25rem;
+    height: 25rem;
+    transform: scaleX(-1);
+}
+
+.next-tutor-slide{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: 0px solid white;
+    background-color: rgb(16, 16, 16);
+    color: #f5deb3;
+
+}
+.next-tutor-slide:hover{
+    background-color: rgb(23, 23, 23);
+}
+.next-tutor-slid:active{
+    background-color: rgb(58, 58, 58);
+}
+
+
+
+
+
+
+
+
+</style>

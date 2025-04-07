@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      iframeSrc: 'src/assets/public/index.html',
+      iframeSrc: '/Lost-in-the-Tiles/src/assets/public/index.html',
       isLoading: true, // Состояние загрузки
     };
   },

@@ -17,7 +17,7 @@ export default createRouter ({
 
     {
         path: '/home',
-        component: Scene
+        component: Home
     },
     { 
         path: '/game', 

@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      iframeSrc: './ChessChatGPT/public/index.html',
+      iframeSrc: './src/public/index.html',
       isLoading: true, // Состояние загрузки
     };
   },
